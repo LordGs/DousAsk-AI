@@ -137,5 +137,11 @@
         "category": "MISC",
         "question": "What is or what or what are or what is the or what's",
         "answer": "I'm Sorry but What are you referring to?"
+    },
+    {
+        "category": "COMMIT",
+        "question": "Will paolo commit?",
+        "answer": "I dont know"
     }
 ]
+

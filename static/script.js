@@ -27,7 +27,7 @@ function sendMessage() {
     chatBox.scrollTo({ top: chatBox.scrollHeight, behavior: "smooth" });
 
     // Send API request to Flask
-    fetch("http://127.0.0.1:5000/ask", {
+    fetch("https://dousask.onrender.com/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userInput })
