@@ -1,0 +1,459 @@
+/* General Styles */
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --white: #fff;
+    --green: #2a8342;
+    --slight-black: #1f1f1f;
+    --silver: rgba(192, 192, 192, 0.361);
+    
+    --sidebar-width: 300px;
+}
+
+/* Body */
+body {
+    font-family: Calibri, sans-serif;
+    background-color: var(--white);
+}
+
+/* Sidebar */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    color: var(--green);
+    padding: 10px;
+    position: relative;
+    transition: margin-left 0.3s;
+    box-shadow: 0 0 5px 0 black;
+    height: 60px;
+}
+
+.toggle-button {
+    color: var(--green);
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--white);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar {
+    z-index: 100;
+    text-align: center;
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    left: -300px;  /* Fixed sidebar hidden position */
+    top: 0;
+    background: var(--white);
+    color: var(--slight-black);
+    transition: left 0.3s;
+    padding-top: 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.active {
+    left: 0;
+    top: 0;
+} 
+
+.sidebar .sidebanner {
+    color: var(--slight-black);
+    height: auto;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .sidebanner img {
+    height: 100px;
+}
+
+.sidebar .sidebanner p {
+    padding: 5px;
+    color: var(--slight-black);
+}
+
+/* Sidebar Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding-left: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    height: 40px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center; /* Center content vertically */
+    margin-bottom: 10px;
+    transition: .3s;
+}
+
+.sidebar ul .selected {
+    background-color: var(--green);
+    color: white;
+}
+
+.sidebar ul .selected a, .sidebar ul .selected i{
+    color: var(--white);
+}
+
+.sidebar ul li a {
+    margin-left: 10px;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;  /* Ensures icons align properly */
+    width: 100%;
+}
+
+.sidebar ul li:hover {
+    background-color: var(--silver);
+}
+
+.sidebar-icon {
+    color: var(--slight-black);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.active ~ .input-container {
+    z-index: 10; /* Push input field behind sidebar */
+}
+
+/* Sidebar Active State */
+.sidebar.active + .main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+}
+
+/* Top Bar */
+.topbar .title {
+    display: flex;
+    align-items: center;
+    color: var(--green);
+    margin-left: 10px;
+}
+
+.topbar .title p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.topbar .logo {
+    margin-left: auto;
+    margin-right: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .logo img {
+    height: 50px;
+    width: 50px;
+}
+
+/* Main Content */
+.main-content {
+    height: 100%;
+    transition: margin-left 0.3s, width 0.3s;
+    width: 100%;
+}
+
+.inside-main {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers children horizontally */
+    overflow: hidden; /* Hides overflow content */
+    max-height: 100vh; /* Prevents it from growing too large */
+}
+
+
+/* Input Area */
+.input-container {
+    /* position: relative;  */
+    z-index: 50;
+    display: flex;
+    justify-content: center; /* Centers the input-prompt inside */
+    width: 100%;
+}
+
+.input-prompt {
+    border: .2px solid rgba(128, 128, 128, 0.292);
+    border-radius: 15px;
+    box-shadow: 0px 1px 20px .5px rgba(0, 0, 0, 0.176);
+
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    position: absolute;
+    bottom: 7%;
+
+    height: 50px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+
+    transition: .5s;
+}
+
+.input-prompt input {
+    width: 85%; /* Adjusted to fit next to button */
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 1px solid var(--silver);
+}
+
+.input-prompt button {
+    width: auto;
+    height: auto;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-prompt button i {
+    color: var(--green);
+    font-size: 30px;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    transform: translate(2,1);
+}
+.input-prompt button i:hover{
+    color: var(--silver);
+}
+
+
+@media all and (max-width: 720px) {
+    .input-container {
+        display: flex;
+        justify-content: center; /* Centers the input-prompt inside */
+        width: 100%;
+    }
+    
+    .input-prompt {
+        border: .2px solid rgba(128, 128, 128, 0.292);
+        border-radius: 10px;
+        box-shadow: 0px 1px 20px .5px rgba(0, 0, 0, 0.176);
+    
+        padding-left: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    
+        position: absolute;
+        bottom: 7%;
+    
+        height: 20px;
+        width: 80%;
+        display: flex;
+        align-items: center;
+    
+        transition: .5s;
+    }
+    
+    .input-prompt input {
+        width: 85%; /* Adjusted to fit next to button */
+        height: 20px;
+        border: none;
+        outline: none;
+        font-size: 10px;
+        border-bottom: 1px solid var(--silver);
+    }
+    
+    .input-prompt button {
+        width: auto;
+        height: auto;
+        border: none;
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .input-prompt button i {
+        color: var(--green);
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .5s;
+        transform: translate(2,1);
+    }
+    .input-prompt button i:hover{
+        color: var(--silver);
+    }
+}
+
+
+
+/* chat box */
+
+/* Chat container - adjust width */
+.chat-container {
+    padding-top: 20px;
+    width: 100%;
+    height: 65vh; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Chat box - increase width */
+#chat-box {
+    flex-grow: 1;
+    overflow-y: auto; /* Enables scrolling */
+    max-height: 100%;
+    width: 70%; /* Increase width */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px; /* Add padding for spacing */
+    border-radius: 10px;
+    transition: .4s;
+    
+}
+
+#chat-box h1{
+    text-align: center;
+}
+#chat-box p{
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Custom scrollbar styling (optional) */
+#chat-box::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* User message (align right) */
+.user-message {
+    background-color: rgba(128, 128, 128, 0.235);
+    padding: 10px;
+    width: max-content;
+    border-radius: 10px;
+    max-width: 70%;
+    align-self: flex-end; /* Pushes to the right */
+}
+
+/* Bot message (align left) */
+.bot-message {
+    align-self: flex-start; /* Pushes to the left */
+}
+
+
+#chat-box::-webkit-scrollbar-thumb {
+    background-color: var(--silver);
+    border-radius: 10px;
+}
+
+
+.home-content {
+    height: auto;
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.home-content img{
+    height: 200px;
+}
+
+.home-banner{
+    padding: 0;
+    width: 100%;
+    height: auto;
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../static/images/banner-dous.png);
+    background-size: cover;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.home-banner h1{
+    color: var(--white);
+    text-align: center;
+    font-size: 50px;
+}
+
+.home-banner h2{
+    color: var(--white);
+    text-align: center;
+}
+
+.home-banner a{
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px;
+    font-weight: bold;
+    margin-top: 70px;
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    background-color: var(--green);
+    transition: .2s;
+}
+.home-banner a:hover{
+    background-color: white;
+    color: var(--green);
+}
+
+
+
+/* introduction */
+.introduction {
+    height: auto;
+    padding-top: 50px;
+    width: 50%; /* Adjust as needed */
+    margin: 0 auto; /* Centers horizontally */
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+.introduction h1{  
+    padding: 20px;
+}
+
+@media all and (max-width: 720px){
+    .introduction {
+        width: 80%;
+        padding-bottom: 300px;
+    }
+    .introduction h1 {
+        font-size: 20px;
+        padding: 0;
+    }
+    .introduction p {
+        height: auto;
+    }
+    .home-banner a {
+        margin-top: 12%;
+    }
+
+}

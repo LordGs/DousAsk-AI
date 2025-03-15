@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dous Ask</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/dmmmsu-logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        <div class="title"><p>DOUS</p></div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/dmmmsu-logo.png') }}" alt="DMMMSU Logo">
+            <img src="{{ url_for('static', filename='images/ous-logo.png') }}" alt="OUS Logo">
+        </div>
+    </div>
+    
+    {% include 'sidebar.html' %}
+    
+    <div class="main-content">
+        <div class="inside-main">
+            <div class="home-content">
+                <div class="home-banner">
+                    <img src="{{ url_for('static', filename='images/ous-whitebg.png') }}" alt="OUS Logo">
+                    <h1>DousAsk</h1>
+                    <h2>The DMMMSU Open University System's Q&A Platform</h2>
+                    <a href="{{ url_for('chat') }}">Ask Questions ↗</a>
+                </div>
+            </div>
+            <div class="introduction">
+                <h1>DousAsk Overview</h1>
+                <p>DousAsk is your go-to platform for quick and reliable information about Don Mariano Marcos Memorial State University - Open University System (DMMMSU OUS). Whether you're a student, faculty member, or visitor, you can ask questions and receive instant responses about courses, enrollment, policies, and more. Designed to enhance accessibility and support, DousAsk ensures that the answers you need are always just a message away.</p>
+            </div>
+            <br>
+            <br>
+        </div>
+        
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dous Ask</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/dmmmsu-logo.png') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <button class="toggle-button" onclick="toggleSidebar()">
+            <p>☰</p>
+        </button>
+        <div class="title">
+            <p>DOUS</p>
+        </div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/dmmmsu-logo.png') }}" alt="Logo">
+            <img src="{{ url_for('static', filename='images/ous-logo.png') }}" alt="Logo">
+        </div>
+    </div>
+    
+    {% include 'sidebar.html' %}
+    
+    <div class="main-content">
+        <div class="inside-main">
+            <div class="chat-container">
+                <div id="chat-box">
+                    <h1>Embracing World Class Standards</h1>
+                    <p>Reminder to Please only Ask DMMMSU OUS Related Question. Thankyou!</p>
+                    <!-- <div class="bot-message">Hello, Welcome to DOUSask, What can I help you with?</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="input-prompt">
+                <input type="text" id="user-input" placeholder="Type your question..." />
+                <button onclick="sendMessage()">
+                    <i class="material-icons send-icon">send</i>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

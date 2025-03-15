@@ -1,0 +1,26 @@
+<div class="sidebar">
+    <div class="sidebanner">
+        <img src="{{ url_for('static', filename='images/ous-whitebg.png') }}" alt="OUS Logo">
+        <p style="font-size: 19px;">Don Mariano Marcos Memorial State University</p>
+        <p>(Open University System)</p>
+    </div>
+    
+    <ul>
+        <li>
+            <i class="material-icons sidebar-icon">home</i>
+            <a href="{{ url_for('home') }}">Home</a>
+        </li>
+        <li>
+            <i class="material-icons sidebar-icon">chat_bubble</i>
+            <a href="{{ url_for('chat') }}">Chat</a>
+        </li>
+        <li>
+            <i class="material-icons sidebar-icon">settings</i>
+            <a href="#">Preferences</a>
+        </li>
+        <li>
+            <i class="material-icons sidebar-icon">info</i>
+            <a href="#">About</a>
+        </li>
+    </ul>
+</div>
